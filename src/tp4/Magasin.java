@@ -1,35 +1,45 @@
 public class Magasin {
-    public int id;
-    public String adresse;
-    public int capacite = 50;
-    produit[] tab = new produit[capacite];
-    public int num = 0;
 
-    public Magasin(int id, String adresse, int capacite) {
-        this.id = id;
-        this.adresse = adresse;
-        this.capacite = capacite;
+    String adress;
+    int id;
+    int Capasitee;
+    static int nbr;
+    Produit[] products;
+    Employe[]employes;
+    String nom;
+    Magasin (){}
+
+    Magasin(String adress,int id,int capasitee,Produit[] p, Employe[] e,String nom){
+        this.adress=adress;
+        this.id=id;
+        this.Capasitee=capasitee;
+        this.products = new Produit[50];
+        this.products=p;
+        this. employes= new  Employe[20];
+        this. employes=e;
+        this.nom=nom;
+        nbr ++;
     }
 
-    public Magasin() {
+
+    public boolean ajouterEmploye(Employe e) {
+        if (nbr <20) {
+            employes[nbr]=e;
+            nbr++;}
+        return false;
     }
 
-    public void affmagasin() {
-        System.out.println(this.id);
-        System.out.println(this.adresse);
-        System.out.println(this.capacite);
-        for (int i = 0; i < num; i++) {
-            System.out.println(tab[i].getLibelle());
-            System.out.println(tab[i].getPrix());
-        }
+    void AfficherMagasin(){
+        System.out.println(id +" "+ adress +" "+Capasitee);
+        for (int i=0;i<products.length;i++){
+            if (products[i] != null) {
+                products[i].afficherProduit();
+            }}
     }
+    void AfficherMagasinemployee(){
+        for (int j=0;j<employes.length;j++) {
+            if (employes[j] != null) {
 
-    public void ajouter(produit p) {
-        if (num < capacite) {
-            tab[num] = p;
-            num++;
-        } else {
-            System.out.println("La quantité a dépassé la quantité maximale de produits.");
-        }
-    }
-}
+                employes[j].AfficherEmploye();
+
+            }}}}
